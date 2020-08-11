@@ -147,4 +147,10 @@ function articleMaker (title, date, firstParagraph, secondParagraph, thirdParagr
   });
 
   return article;
-}
+};
+
+const articles = document.querySelector('.articles');
+
+data.map(d => {
+  articles.appendChild(articleMaker(d.title, d.date, d.firstParagraph, d.secondParagraph, d.thirdParagraph));
+});
