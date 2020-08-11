@@ -136,5 +136,15 @@ function articleMaker (title, date, firstParagraph, secondParagraph, thirdParagr
   articleDate.classList.add('date');
   articleButton.classList.add('expandButton');
 
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleP1.textContent = firstParagraph;
+  articleP2.textContent = secondParagraph;
+  articleP3.textContent = thirdParagraph;
+
+  articleButton.addEventListener('click', (e) => {
+    articleButton.classList.toggle('toggle-on');
+  });
+
   return article;
 }
