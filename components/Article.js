@@ -86,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  }, 
+  {
+    title: 'Article Test',
+    date: 'Aug 11th, 2020',
+    firstParagraph: `BLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah Blah `,
+
+    secondParagraph: `BLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah Blah `,
+
+    thirdParagraph: `BLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah Blah `
   }
 ];
 
@@ -114,3 +123,44 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker (title, date, firstParagraph, secondParagraph, thirdParagraph) {
+
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articleP1 = document.createElement('p');
+  const articleP2 = document.createElement('p');
+  const articleP3 = document.createElement('p');
+  const articleButton = document.createElement('span');
+
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(articleP1);
+  article.appendChild(articleP2);
+  article.appendChild(articleP3);
+  article.appendChild(articleButton);
+
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  articleButton.classList.add('expandButton');
+
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleP1.textContent = firstParagraph;
+  articleP2.textContent = secondParagraph;
+  articleP3.textContent = thirdParagraph;
+  articleButton.textContent = '+';
+
+  articleButton.addEventListener('click', (e) => {
+    article.classList.toggle('article-open');
+  });
+
+  return article;
+};
+
+const articles = document.querySelector('.articles');
+
+data.map(d => {
+  articles.appendChild(articleMaker(d.title, d.date, d.firstParagraph, d.secondParagraph, d.thirdParagraph));
+});
