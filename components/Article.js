@@ -86,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  }, 
+  {
+    title: 'Article Test',
+    date: 'Aug 11th, 2020',
+    firstParagraph: `BLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah Blah `,
+
+    secondParagraph: `BLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah Blah `,
+
+    thirdParagraph: `BLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah BlahBLah Blah Blah `
   }
 ];
 
@@ -141,9 +150,10 @@ function articleMaker (title, date, firstParagraph, secondParagraph, thirdParagr
   articleP1.textContent = firstParagraph;
   articleP2.textContent = secondParagraph;
   articleP3.textContent = thirdParagraph;
+  articleButton.textContent = '+';
 
   articleButton.addEventListener('click', (e) => {
-    articleButton.classList.toggle('toggle-on');
+    article.classList.toggle('article-open');
   });
 
   return article;
